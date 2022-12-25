@@ -1,7 +1,7 @@
 {
   "name": "ReturnTwitterInfo",
   "version": "1.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "description": "Twitterのクライアント情報を復活させます",
   "content_scripts": [{
     "matches": ["https://twitter.com/*"],
@@ -10,11 +10,9 @@
     ]
   }],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"],
+    "persistent": false
   },
-  "host_permissions": [
-	  "*://*.mico.re/*"
-  ],
   "permissions": [
     "activeTab",
     "webNavigation",

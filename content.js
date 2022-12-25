@@ -1,7 +1,7 @@
 function setTwitterClientInfo() {
 	var parser = new URL(location.href);
 	if (!isNaN(parser.pathname.split('/')[3])) {
-		chrome.runtime.sendMessage(
+		browser.runtime.sendMessage(
 			{
 				endpoint: 'https://mico.re/api/getclient.php?id=' + parser.pathname.split('/')[3]
 			},
@@ -19,7 +19,7 @@ function setTwitterClientInfo() {
 
 }
 
-chrome.runtime.onMessage.addListener(
+browser.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
 		setTwitterClientInfo();
 	}

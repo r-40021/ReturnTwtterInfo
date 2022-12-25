@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+browser.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	fetch(message.endpoint, {
 		'method': 'GET'
 	}).then((response) => {
@@ -13,10 +13,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	return true;
 });
 
-chrome.tabs.onUpdated.addListener(
+browser.tabs.onUpdated.addListener(
 	function (tabId, changeInfo, tab) {
 		if (changeInfo.url) {
-			chrome.tabs.sendMessage(tabId, {
+			browser.tabs.sendMessage(tabId, {
 				type: 'update',
 				url: changeInfo.url
 			})
